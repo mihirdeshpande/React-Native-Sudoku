@@ -29,7 +29,7 @@ export class Square extends Component {
   render() {
     var enabledSquare = (
 	  <TextInput
-        style={{textAlign:"center", borderColor: theme.borderColor, color:theme.gridEnabledTextColor, borderWidth: 1, backgroundColor:this.props.sqColor, borderRadius:3}}
+        style={{fontSize:theme.gridFontSize, textAlign:"center", borderColor: theme.borderColor, color:theme.gridEnabledTextColor, borderWidth: 1, backgroundColor:this.props.sqColor, borderRadius:3}}
 		onChange={(e) => this.onChangeHandler(e)}
 		value={this.state.val}
 		maxLength={1}
@@ -39,7 +39,7 @@ export class Square extends Component {
 	
 	var disabledSquare = (
 		<TextInput
-		  style={{textAlign:"center", borderColor: theme.borderColor, color:theme.gridDisabledTextColor, borderWidth: 1, backgroundColor:this.props.sqColor, borderRadius:3}}
+		  style={{fontSize:theme.gridFontSize, textAlign:"center", borderColor: theme.borderColor, color:theme.gridDisabledTextColor, borderWidth: 1, backgroundColor:this.props.sqColor, borderRadius:3}}
 		  onChange={(e) => this.onChangeHandler(e)}
 		  value={this.state.val}
 		  maxLength={1}
