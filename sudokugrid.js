@@ -286,36 +286,57 @@ export class SudokuGrid extends React.Component{
 	render(){
 		return (
 				<View ref="sudoku" style={{flex:1, flexDirection:'row', justifyContent:'center'}}>
-					<View style={{flex:1, flexDirection:'column', justifyContent:'center',backgroundColor:'yellow' }}>
-						<Button style={{justifyContent:'center'}} onPress={(e) => this.newGrid('easy')} title='E'/>
-						<Button style={{justifyContent:'center'}} onPress={(e) => this.newGrid('medium')} title='Medium'/>
-						<Button onPress={(e) => this.newGrid('hard')} title='Hard'/>
+					<View style={{flex:1, flexDirection:'column', justifyContent:'flex-start' }}>
+						<Button color={theme.btnEasyColor} style={{justifyContent:'center'}} onPress={(e) => this.newGrid('easy')} title='Easy'/>
+						<Button color={theme.btnMediumColor} style={{justifyContent:'center'}} onPress={(e) => this.newGrid('medium')} title='Medium'/>
+						<Button color={theme.btnHardColor} style={{justifyContent:'center'}} onPress={(e) => this.newGrid('hard')} title='Hard'/>
 					</View>
 					
-					<View style={{flex:9,flexDirection:'column', justifyContent:'center', backgroundColor:'red'}}>
-						<View style={{flexDirection:'row', justifyContent:'center', backgroundColor:'yellow'}}>
+					<View style={{flex:10,flexDirection:'column', justifyContent:'flex-start'}}>
+						<View style={{flexDirection:'row', justifyContent:'center'}}>
+							<View style={{flex:1, flexDirection:'column', justifyContent:'center'}}>
 							<ThreeByThreeGrid propTest={this.test} displayMsg={this.displayMsg} gridId='0' gridColor={theme.gridPrimaryColor} ref="0"/>
+							</View>
+							
+							<View style={{flex:1, flexDirection:'column', justifyContent:'center'}}>
 							<ThreeByThreeGrid propTest={this.test} displayMsg={this.displayMsg} gridId='1' gridColor={theme.gridSecondaryColor} ref="1"/>
+							</View>
+							
+							<View style={{flex:1, flexDirection:'column', justifyContent:'center'}}>
 							<ThreeByThreeGrid propTest={this.test} displayMsg={this.displayMsg} gridId='2' gridColor={theme.gridPrimaryColor} ref="2"/>
+							</View>
+							
 						</View>
 						<View style={{flexDirection:'row', justifyContent:'center'}}>
+						<View style={{flex:1, flexDirection:'column', justifyContent:'center'}}>
 							<ThreeByThreeGrid propTest={this.test} displayMsg={this.displayMsg} gridId='3' gridColor={theme.gridSecondaryColor} ref="3"/>
+							</View>
+							<View style={{flex:1, flexDirection:'column', justifyContent:'center'}}>
 							<ThreeByThreeGrid propTest={this.test} displayMsg={this.displayMsg} gridId='4' gridColor={theme.gridPrimaryColor} ref="4"/>
+							</View>
+							<View style={{flex:1, flexDirection:'column', justifyContent:'center'}}>
 							<ThreeByThreeGrid propTest={this.test} displayMsg={this.displayMsg} gridId='5' gridColor={theme.gridSecondaryColor} ref="5"/>
+							</View>
 						</View>
 						<View style={{flexDirection:'row', justifyContent:'center'}}>
+						<View style={{flex:1, flexDirection:'column', justifyContent:'center'}}>
 							<ThreeByThreeGrid propTest={this.test} displayMsg={this.displayMsg} gridId='6' gridColor={theme.gridPrimaryColor} ref="6"/>
+							</View>
+							<View style={{flex:1, flexDirection:'column', justifyContent:'center'}}>
 							<ThreeByThreeGrid propTest={this.test} displayMsg={this.displayMsg} gridId='7' gridColor={theme.gridSecondaryColor} ref="7"/>
+							</View>
+							<View style={{flex:1, flexDirection:'column', justifyContent:'center'}}>
 							<ThreeByThreeGrid propTest={this.test} displayMsg={this.displayMsg} gridId='8' gridColor={theme.gridPrimaryColor} ref="8"/>
+							</View>
 						</View>
-						<View style={{hide: this.state.messageVisibility, justifyContent:'center'}} className={this.state.alertClass} role="alert">
-							<Text>{this.state.message}</Text>
+						<View style={{flexDirection:'row', hide: this.state.messageVisibility, justifyContent:'center'}} className={this.state.alertClass} role="alert">
+							<Text style={{color: theme.gridStatusColor, fontSize:theme.gridFontSize}}>{this.state.message}</Text>
 						</View>
 					</View>
 					
-					<View style={{flex:1, flexDirection:'column', justifyContent:'center',backgroundColor:'yellow' }}>
-						<Button style={{justifyContent:'center'}} onPress={(e) => this.solve(e)} title='S'/>
-						<Button style={{justifyContent:'center'}} onPress={(e) => this.clearGrid(e)} title='CG'/>
+					<View style={{flex:1, flexDirection:'column', justifyContent:'flex-start'}}>
+						<Button color={theme.btnSolveColor} style={{justifyContent:'center'}} onPress={(e) => this.solve(e)} title='Solve'/>
+						<Button color={theme.btnClearGridColor} style={{justifyContent:'center'}} onPress={(e) => this.clearGrid(e)} title='Clear Gr i d '/>
 					</View>
 				</View>		
 		);
